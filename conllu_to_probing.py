@@ -83,7 +83,7 @@ def generate_probing_file(category, conllu_path, result_path, partition=(0.8, 0.
     sentences = parse_tree(conllufile)
     classified_sentences = classify(sentences, category)
     if len(classified_sentences) == 0:
-        raise ValueError('It seems like there is no', category, 'category in this language.')
+        raise ValueError('It seems like there is no such category in this language.')
     parts = subsamples_split(classified_sentences, partition, shuffle)
     writer(result_path, parts)
 
