@@ -20,7 +20,7 @@ def find_category(category, head, children):
 
 # Классифицируем предложения по значениям выбранной категории. probing_data - {category_value: list of sentences}
 def classify(token_trees, category):
-    print('Классифицируем предложения по категории...')
+    print('Classifying sentences by category values...')
     probing_data = defaultdict(list)
     for token_tree in token_trees:
         s_text = ' '.join(wordpunct_tokenize(token_tree.metadata['text']))
@@ -40,7 +40,7 @@ def limit_size(classified_sentences):
 
 # Делим на 3 выборки в заданном соотношении
 def subsamples_split(x, partition, shuffle):
-    print('Разбиваем на выборки...')
+    print('Splitting into samples...')
     partition_sets = {
         'tr': {},
         'va': {},
@@ -65,7 +65,7 @@ def subsamples_split(x, partition, shuffle):
 
 # запись в файл в формате пробинга
 def writer(result_path, partition_sets):
-    print('Записываем в файл...')
+    print('Writing to file', result_path, '...')
     with open(result_path, 'w', encoding='utf-8') as newf:
         my_writer = csv.writer(newf, delimiter='\t', lineterminator='\n')
         for part in partition_sets:
@@ -77,7 +77,7 @@ def writer(result_path, partition_sets):
 
 # гененируем файл для категории из conllu
 def generate_probing_file(category, conllu_path, result_path, partition=(0.8, 0.1, 0.1), shuffle=True):
-    print('Начинаем генерировать файл для категориии', category, '...')
+    print('Start generating file for category', category, '...')
     with open(conllu_path, 'r', encoding='utf-8') as f:
         conllufile = f.read()
     sentences = parse_tree(conllufile)
