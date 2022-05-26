@@ -76,7 +76,12 @@ def writer(result_path, partition_sets):
 
 
 # гененируем файл для категории из conllu
-def generate_probing_file(category, conllu_path, result_path, partition=(0.8, 0.1, 0.1), shuffle=True):
+def generate_probing_file(category, 
+                          conllu_path, 
+                          result_path, 
+                          partition=(0.8, 0.1, 0.1), 
+                          shuffle=True):
+    
     print('Start generating file for category', category, '...')
     with open(conllu_path, 'r', encoding='utf-8') as f:
         conllufile = f.read()
