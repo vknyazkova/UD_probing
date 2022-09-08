@@ -4,9 +4,10 @@ from conllu import parse
 from pathlib import Path
 from typing import Tuple, Optional, List
 from nltk.tokenize import wordpunct_tokenize
-from probing.ud_filter.sentence_filter import SentenceFilter
-from probing.ud_filter.utils import subsamples_split, read, writer, extract_lang_from_udfile_path, determine_ud_savepath
-
+# from probing.ud_filter.sentence_filter import SentenceFilter
+# from probing.ud_filter.utils import subsamples_split, read, writer, extract_lang_from_udfile_path, determine_ud_savepath
+from sentence_filter import SentenceFilter
+from utils import subsamples_split, read, writer, extract_lang_from_udfile_path, determine_ud_savepath
 
 class ProbingConlluFilter:
     """
